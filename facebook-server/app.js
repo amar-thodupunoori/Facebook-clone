@@ -19,12 +19,12 @@ app.use('/public/uploads' , express.static(__dirname + '/public/uploads'));
 app.get('/' , (req , res) => res.send("You are connected succesfuly "))
 const baseURL = '/api/v1'
 
-app.use(`${baseURL}/auth` , AuthRoute);
-app.use(`${baseURL}/post` , PostRoute);
-app.use(`${baseURL}/user` , UserRoute);
+app.use(`/auth` , AuthRoute);
+app.use(`/post` , PostRoute);
+app.use(`/user` , UserRoute);
 //connection with database 
 const Port = process.env.PORT || 5000;
 
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect("mongodb+srv://facebook1:facebook1@cluster0.vgjpabz.mongodb.net/?retryWrites=true&w=majority")
         .then(() => app.listen(Port , () => console.log(`Server Runing on port ${Port}`)))
         .catch(err => console.log(err.message));

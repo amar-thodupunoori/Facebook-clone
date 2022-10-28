@@ -50,13 +50,18 @@ const Signup = async (req , res ) => {
 const Login = async ( req , res) => {
     try {
         const {email , password } = req.body;
+        //console.log("finduser")
         //check if user entered password and email or not 
         if(!email || !password) return res.status(403).json({message:"Email and password required "});
         //get user from database
         const finduser = await user.findOne({email});
+        //console.log(finduser)
         // check user and password 
+        console.log(bcrypt.compareSync(password , finduser.password))
         if(finduser && bcrypt.compareSync(password , finduser.password)){
-            const token = JWT.sign({userId:finduser._id } , process.env.SECRET_KEY , {expiresIn:'1d'});
+          
+            const token = JWT.sign({userId:finduser._id } , "123" , {expiresIn:'1d'});
+            
             return res.status(200).json({ username:finduser.username, surname:finduser.surname , token , _id:finduser._id , profile_pic:finduser.profile_pic})
         }
         return res.status(400).json({message:"Invalied Email or Password "})
