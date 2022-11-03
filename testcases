@@ -1,0 +1,10 @@
+1) Login Successful test case 
+2) Login Failure test case 
+3) Create a new account with less than 18 years age
+4) Create a new account with more than 18 years age
+5) Write a new post on the page
+6) A user should be able to edit the post on timeline
+7) A friend should be able to view the post
+8) A friend should be able to like the post
+9) A friend should be able to comment on the post
+10) A new user should be not be able to access the posts if they are not friends

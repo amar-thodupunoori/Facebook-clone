@@ -25,6 +25,6 @@ app.use(`/user` , UserRoute);
 //connection with database 
 const Port = process.env.PORT || 5000;
 
-mongoose.connect("mongodb+srv://facebook1:facebook1@cluster0.vgjpabz.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb://localhost:27017/social")
         .then(() => app.listen(Port , () => console.log(`Server Runing on port ${Port}`)))
         .catch(err => console.log(err.message));
