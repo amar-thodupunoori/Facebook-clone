@@ -1,3 +1,4 @@
+//This is the auth file
 const JWT = require('jsonwebtoken');
 const user = require('../models/user');
 
